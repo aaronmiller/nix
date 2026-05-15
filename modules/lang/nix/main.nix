@@ -1,0 +1,26 @@
+{ pkgs, ... }:
+
+{
+  environment.etc."gitignore".text = ''
+    # Ignore build outputs from performing a nix-build or `nix build` command
+    result
+    result-*
+
+    # Ignore automatically generated direnv output
+    .direnv
+
+    # Ignore NixOS interactive test driver history
+    **/.nixos-test-history
+
+    # devenv
+    .devenv*
+    devenv.local.nix
+    devenv.local.yaml
+
+    # direnv
+    .direnv
+
+    # pre-commit
+    .pre-commit-config.yaml
+  '';
+}
